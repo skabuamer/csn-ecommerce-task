@@ -35,11 +35,19 @@ Administrators manage shops, products and shop owner accounts. Shop owners pick 
     php artisan key:generate
     ```
 
-4. Create an empty MySQL database named `csn_ecommerce`:
+4. Create an empty MySQL database named `csn_ecommerce`. Use any one of these:
 
-    ```sql
-    CREATE DATABASE csn_ecommerce CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+    **Option A: MySQL command line**
+
+    ```bash
+    mysql -u root -p -e "CREATE DATABASE csn_ecommerce CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;"
     ```
+
+    (Press Enter at the password prompt if your root user has no password.)
+
+    **Option B: phpMyAdmin / MySQL Workbench / any GUI**
+
+    Create a new database named `csn_ecommerce` with collation `utf8mb4_unicode_ci`.
 
 5. Check the database settings in `.env`. The defaults are:
 
