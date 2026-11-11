@@ -103,35 +103,6 @@ All demo accounts use the password `password`.
 
 Login page: http://127.0.0.1:8000/login
 
-## Features
-
-### Admin panel (`/admin`)
-
-- Admin authentication
-- Shop management (create, edit, delete)
-- Product management (create, edit, delete, thumbnail upload)
-- Create and manage shop owner accounts and assign each owner a shop
-
-### Shop owner panel (`/owner`)
-
-- Browse the shared product catalog (products created by the admin and by other owners)
-- Add a catalog product to their own shop, optionally setting a custom price, title, details and thumbnail
-- Create new products, which become available in the shared catalog and are listed in their shop automatically
-- Edit or remove listings in their own shop only (an owner cannot touch another owner's shop)
-
-### Customer view (`/`)
-
-- Browse all shops and a combined product grid
-- View a shop's products with the shop's own price, title, details and thumbnail
-- Products that are not listed in any shop are never shown
-
-## How it works
-
-- `users.role` is either `admin` or `shop_owner`. Route groups are protected by the `auth` and `role:<name>` middleware.
-- `products` is the shared catalog.
-- `shop_products` links a shop to a product. Its `price` is the shop's price, and its optional `title`, `details` and `thumbnail` override the catalog product's values for that shop. When they are empty, the catalog values are used.
-- The customer pages read from `shop_products` only, so a product without a listing cannot appear to customers.
-
 ## Notes
 
 - Seeded data includes one product ("Unlisted Product") that is not in any shop. It appears in the admin panel and in the owner catalog, but not on any customer page.
